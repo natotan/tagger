@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <h1>New Content</h1>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<%= form_for :content, url: contents_path do |f| %>
+  <p>
+    <%= f.label :URL %><br>
+    <%= f.text_field :url %>
+  </p>
+ 
+  <p>
+    <%= f.label :Tags %><br>
+    <%= f.text_area :tags %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
