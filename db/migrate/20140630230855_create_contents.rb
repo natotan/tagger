@@ -1,10 +1,15 @@
 class CreateContents < ActiveRecord::Migration
-  def change
-    create_table :contents do |t|
-      t.string :URL
-      t.text :tags
-
-      t.timestamps
-    end
-  end
+ 
+ #up and down: used to undo the migration's changes. 
+	def up
+		create_table :contents do |t|
+			t.string :URL
+			t.timestamp
+		end
+	end
+	def down
+		drop_table :contents
+	end
+	
+  
 end

@@ -1,8 +1,12 @@
 class CreateTags < ActiveRecord::Migration
-  def change
-    create_table :tags do |t|
-
-      t.timestamps
-    end
+  def self.up
+     create_table :tags do |t|
+        t.string   :name
+        t.timestamp
+     end
   end
+  def self.down
+    drop_table :tags
+  end
+  
 end

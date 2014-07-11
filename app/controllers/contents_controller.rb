@@ -5,20 +5,20 @@ class ContentsController < ApplicationController
 	
 	def create
 		@content = Content.new(content_params)
-		
-		@content.save
-		redirect_to @content
-			
+		@tags = @content.tags.build(params[:tagsName])
+		if @content.save
+			redirect_to @content
+		else		
+			render :action => 'new'
+		end
 	end
-
+	
 	def show
 		@content = Content.find(params[:id])
 	end
-	
+
 	private
 		def content_params
-			params.require(:content).permit(:URL, :tags)
+			params.require(:content).permit(:URL, :tagsName)			
 		end
-	
-	
 end
