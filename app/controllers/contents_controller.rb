@@ -5,7 +5,14 @@ class ContentsController < ApplicationController
 	
 	def create
 		@content = Content.new(content_params)
-		@tags = @content.tags.build(params[:tagsName])
+	
+		tagsList = @content.tagsName.split
+		for a in tagsList
+			@tags = Tag.new(:tagsName => a)
+			@tags.save
+		end
+		
+		
 		if @content.save
 			redirect_to @content
 		else		
@@ -21,4 +28,5 @@ class ContentsController < ApplicationController
 		def content_params
 			params.require(:content).permit(:URL, :tagsName)			
 		end
+
 end
