@@ -8,9 +8,15 @@ class ContentsController < ApplicationController
 	
 		tagsList = @content.tagsName.split
 		for a in tagsList
-			@tags = Tag.new(:tagsName => a)
-			@tags.save
-			@content.tags << @tags 
+			if Tag.exists?(tagsName: a)
+				@tags = Tag.find_by! tagsName: a
+				@content.tags << @tags
+			else
+			
+				@tags = Tag.new(:tagsName => a)
+				@tags.save
+				@content.tags << @tags 
+			end	
 		end
 		
 		
