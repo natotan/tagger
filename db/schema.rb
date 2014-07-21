@@ -11,22 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718182458) do
+ActiveRecord::Schema.define(version: 20140721193840) do
 
   create_table "contents", force: true do |t|
     t.string   "URL"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tagsName"
   end
 
   create_table "contents_tags", id: false, force: true do |t|
-    t.integer  "content_id"
-    t.string   "tagsName"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "content_id"
+    t.integer "tag_id"
   end
 
-  create_table "tags", id: false, force: true do |t|
+  create_table "tags", primary_key: "tag_id", force: true do |t|
     t.string   "tagsName"
     t.datetime "created_at"
     t.datetime "updated_at"

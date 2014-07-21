@@ -10,6 +10,7 @@ class ContentsController < ApplicationController
 		for a in tagsList
 			@tags = Tag.new(:tagsName => a)
 			@tags.save
+			@content.tags << @tags 
 		end
 		
 		

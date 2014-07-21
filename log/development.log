@@ -11104,3 +11104,976 @@ ActiveRecord::UnknownAttributeError (unknown attribute: tagsName):
   Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
   Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
   Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (31.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPrimaryKeyTags (20140718234301)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TEMPORARY TABLE "atags" ("tagsName" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "tags"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "atags" ("tagsName","created_at","updated_at") VALUES ('gse', '2014-07-17 22:34:26.828534', '2014-07-17 22:34:26.828534')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "atags" ("tagsName","created_at","updated_at") VALUES ('fsef', '2014-07-17 22:34:26.989641', '2014-07-17 22:34:26.989641')
+  [1m[36m (0.0ms)[0m  [1mDROP TABLE "tags"[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "tags" ("tagsName" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "atags"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "tags" ("tagsName","created_at","updated_at") VALUES ('gse', '2014-07-17 22:34:26.828534', '2014-07-17 22:34:26.828534')
+SQLite3::MismatchException: datatype mismatch: INSERT INTO "tags" ("tagsName","created_at","updated_at") VALUES ('gse', '2014-07-17 22:34:26.828534', '2014-07-17 22:34:26.828534')
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPrimaryKeyTags (20140718234301)
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TEMPORARY TABLE "atags" ("tagsName" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "tags"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "atags" ("tagsName","created_at","updated_at") VALUES ('gse', '2014-07-17 22:34:26.828534', '2014-07-17 22:34:26.828534')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "atags" ("tagsName","created_at","updated_at") VALUES ('fsef', '2014-07-17 22:34:26.989641', '2014-07-17 22:34:26.989641')
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "tags"[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "tags" ("tagsName" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "atags"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "tags" ("tagsName","created_at","updated_at") VALUES ('gse', '2014-07-17 22:34:26.828534', '2014-07-17 22:34:26.828534')
+SQLite3::MismatchException: datatype mismatch: INSERT INTO "tags" ("tagsName","created_at","updated_at") VALUES ('gse', '2014-07-17 22:34:26.828534', '2014-07-17 22:34:26.828534')
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 10:58:15 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.2) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.2) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.2) lib/rails/engine.rb:514:in `call'
+  railties (4.1.2) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (51.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 10:58:16 -0500
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.2) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.2) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.2) lib/rails/engine.rb:514:in `call'
+  railties (4.1.2) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/Ruby193/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (33.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPrimaryKeyTags (20140718234301)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140718234301"]]
+  [1m[35m (78.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 11:06:56 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (671.3ms)
+Completed 200 OK in 770ms (Views: 724.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 11:06:57 -0500
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 11:06:57 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 11:06:57 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 11:06:57 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 11:06:57 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 11:06:57 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 11:06:57 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 11:07:05 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"link", "tagsName"=>"tag1 tag2 tag3"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 123ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: tagsName):
+  app/controllers/contents_controller.rb:7:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (33.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddTagsNameToContents (20140721171511)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "contents" ADD "tagsName" varchar(255)[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140721171511"]]
+  [1m[36m (81.5ms)[0m  [1mcommit transaction[0m
+Migrating to AddPrimaryKeyTags (20140721172300)
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TEMPORARY TABLE "atags" ("tagsName" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "tags"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "atags" ("tagsName","created_at","updated_at") VALUES ('gse', '2014-07-17 22:34:26.828534', '2014-07-17 22:34:26.828534')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "atags" ("tagsName","created_at","updated_at") VALUES ('fsef', '2014-07-17 22:34:26.989641', '2014-07-17 22:34:26.989641')
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "tags"[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "tags" ("tagsName" varchar(255), "created_at" datetime, "updated_at" datetime, "tag_id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "atags"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "tags" ("tagsName","created_at","updated_at") VALUES ('gse', '2014-07-17 22:34:26.828534', '2014-07-17 22:34:26.828534')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "tags" ("tagsName","created_at","updated_at") VALUES ('fsef', '2014-07-17 22:34:26.989641', '2014-07-17 22:34:26.989641')[0m
+  [1m[35m (0.0ms)[0m  DROP TABLE "atags"
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140721172300"]]
+  [1m[35m (88.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 12:25:48 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (339.0ms)
+Completed 200 OK in 491ms (Views: 429.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 12:25:49 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 12:25:49 -0500
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 12:25:49 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 12:25:49 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 12:25:50 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 12:25:50 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 12:25:50 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 12:25:57 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"link", "tagsName"=>"tag1 tag2 tag3"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 245ms
+
+ActiveModel::MissingAttributeError (can't write unknown attribute `tag_id'):
+  app/controllers/contents_controller.rb:12:in `block in create'
+  app/controllers/contents_controller.rb:10:in `each'
+  app/controllers/contents_controller.rb:10:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (38.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 12:30:32 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (102.1ms)
+Completed 200 OK in 152ms (Views: 134.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 12:30:33 -0500
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 12:30:33 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 12:30:33 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 12:30:33 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 12:30:33 -0500
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 12:30:33 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 12:30:33 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 12:30:33 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 12:30:40 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"link", "tagsName"=>"tag1 tag2 tag3"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 101ms
+
+ActiveModel::MissingAttributeError (can't write unknown attribute `tag_id'):
+  app/controllers/contents_controller.rb:12:in `block in create'
+  app/controllers/contents_controller.rb:10:in `each'
+  app/controllers/contents_controller.rb:10:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 12:31:23 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (99.1ms)
+Completed 200 OK in 144ms (Views: 126.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 12:31:23 -0500
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 21ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 12:31:23 -0500
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 12:31:23 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 12:31:24 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 12:31:24 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 12:31:24 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 12:31:24 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 12:31:24 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 12:31:28 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"link", "tagsName"=>"tag1 tag2 tag3"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 106ms
+
+ActiveModel::MissingAttributeError (can't write unknown attribute `tag_id'):
+  app/controllers/contents_controller.rb:12:in `block in create'
+  app/controllers/contents_controller.rb:10:in `each'
+  app/controllers/contents_controller.rb:10:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 12:40:47 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (100.1ms)
+Completed 200 OK in 167ms (Views: 131.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 12:40:47 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 12:40:47 -0500
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 12:40:47 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 12:40:47 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 12:40:47 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 12:40:47 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 12:40:48 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 12:40:52 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"link", "tagsName"=>"tag1 tag2 tag3"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 63ms
+
+NoMethodError (undefined method `each' for #<Tag:0x49f6f80>):
+  app/controllers/contents_controller.rb:12:in `block in create'
+  app/controllers/contents_controller.rb:10:in `each'
+  app/controllers/contents_controller.rb:10:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 12:41:54 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (107.1ms)
+Completed 200 OK in 153ms (Views: 135.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 12:41:55 -0500
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 12:41:55 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 12:41:55 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 12:41:55 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 12:41:55 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 12:41:55 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 12:41:55 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 12:41:55 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 12:42:00 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"link", "tagsName"=>"tag1 tag2 tag3"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 107ms
+
+ActiveModel::MissingAttributeError (can't write unknown attribute `tag_id'):
+  app/controllers/contents_controller.rb:12:in `block in create'
+  app/controllers/contents_controller.rb:10:in `each'
+  app/controllers/contents_controller.rb:10:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 12:44:40 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (105.1ms)
+Completed 200 OK in 159ms (Views: 137.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 12:44:40 -0500
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 18ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 12:44:40 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 12:44:40 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 12:44:40 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 12:44:40 -0500
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 12:44:40 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 12:44:41 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 12:44:41 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 12:44:44 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"link", "tagsName"=>"tag1 tag2 tag3"}, "commit"=>"Submit"}
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "contents" ("URL", "created_at", "tagsName", "updated_at") VALUES (?, ?, ?, ?)[0m  [["URL", "link"], ["created_at", "2014-07-21 17:44:45.037658"], ["tagsName", "tag1 tag2 tag3"], ["updated_at", "2014-07-21 17:44:45.037658"]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "tags" ("created_at", "tagsName", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-07-21 17:44:45.102950"], ["tagsName", "tag1"], ["updated_at", "2014-07-21 17:44:45.102950"]]
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 197ms
+
+ActiveModel::MissingAttributeError (can't write unknown attribute `tag_id'):
+  app/controllers/contents_controller.rb:17:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 12:47:02 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (104.1ms)
+Completed 200 OK in 155ms (Views: 136.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 12:47:03 -0500
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 12:47:03 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 12:47:03 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 12:47:03 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 12:47:03 -0500
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 12:47:03 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 12:47:03 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 12:47:03 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 12:47:07 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"link", "tagsName"=>"tag1 tag2 tag3"}, "commit"=>"Submit"}
+Completed 500 Internal Server Error in 112ms
+
+ActiveModel::MissingAttributeError (can't write unknown attribute `tag_id'):
+  app/controllers/contents_controller.rb:13:in `block in create'
+  app/controllers/contents_controller.rb:10:in `each'
+  app/controllers/contents_controller.rb:10:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 13:20:26 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (109.1ms)
+Completed 200 OK in 175ms (Views: 151.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 13:20:27 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 13:20:27 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 13:20:27 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 13:20:27 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 13:20:27 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 13:20:27 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 13:20:27 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 13:20:31 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"link", "tagsName"=>"tag1 tag2 tag3"}, "commit"=>"Submit"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "tags" ("created_at", "tagsName", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-07-21 18:20:31.610498"], ["tagsName", "tag1"], ["updated_at", "2014-07-21 18:20:31.610498"]]
+  [1m[35m (61.0ms)[0m  commit transaction
+Completed 500 Internal Server Error in 185ms
+
+ActiveModel::MissingAttributeError (can't write unknown attribute `tag_id'):
+  app/controllers/contents_controller.rb:13:in `block in create'
+  app/controllers/contents_controller.rb:10:in `each'
+  app/controllers/contents_controller.rb:10:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 13:21:40 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (116.1ms)
+Completed 200 OK in 186ms (Views: 162.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 13:21:41 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 13:21:41 -0500
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 13:21:41 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 13:21:41 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 13:21:41 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 13:21:41 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 13:21:41 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 13:21:45 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"link", "tagsName"=>"tag1 tag2 tag3"}, "commit"=>"Submit"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "tags" ("created_at", "tagsName", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-07-21 18:21:45.690942"], ["tagsName", "tag1"], ["updated_at", "2014-07-21 18:21:45.690942"]]
+  [1m[35m (59.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "tags" ("created_at", "tagsName", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-07-21 18:21:45.757986"], ["tagsName", "tag2"], ["updated_at", "2014-07-21 18:21:45.757986"]]
+  [1m[36m (66.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "tags" ("created_at", "tagsName", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-07-21 18:21:45.827372"], ["tagsName", "tag3"], ["updated_at", "2014-07-21 18:21:45.827372"]]
+  [1m[35m (65.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "contents" ("URL", "created_at", "tagsName", "updated_at") VALUES (?, ?, ?, ?)  [["URL", "link"], ["created_at", "2014-07-21 18:21:45.895803"], ["tagsName", "tag1 tag2 tag3"], ["updated_at", "2014-07-21 18:21:45.895803"]]
+  [1m[36m (51.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/contents/2
+Completed 302 Found in 326ms (ActiveRecord: 248.1ms)
+
+
+Started GET "/contents/2" for 127.0.0.1 at 2014-07-21 13:21:45 -0500
+Processing by ContentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mContent Load (1.0ms)[0m  SELECT  "contents".* FROM "contents"  WHERE "contents"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered contents/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 13:21:46 -0500
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 13:21:46 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 13:21:46 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 13:21:46 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 13:21:46 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 13:21:46 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 13:21:46 -0500
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 13:32:58 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (115.1ms)
+Completed 200 OK in 167ms (Views: 148.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 13:32:59 -0500
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 13:32:59 -0500
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 13:32:59 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 13:32:59 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 13:32:59 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 13:32:59 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 13:32:59 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 13:32:59 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 13:33:05 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"teste", "tagsName"=>"salvar tag1 tag2"}, "commit"=>"Submit"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "tags" ("created_at", "tagsName", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-07-21 18:33:05.231814"], ["tagsName", "salvar"], ["updated_at", "2014-07-21 18:33:05.231814"]]
+  [1m[35m (96.2ms)[0m  commit transaction
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags"  WHERE "tags"."id" IS NULL[0m
+SQLite3::SQLException: no such column: tags.id: SELECT "tags".* FROM "tags"  WHERE "tags"."id" IS NULL
+Completed 500 Internal Server Error in 311ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: tags.id: SELECT "tags".* FROM "tags"  WHERE "tags"."id" IS NULL):
+  app/controllers/contents_controller.rb:14:in `block in create'
+  app/controllers/contents_controller.rb:10:in `each'
+  app/controllers/contents_controller.rb:10:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (32.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 13:33:59 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (101.1ms)
+Completed 200 OK in 150ms (Views: 131.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 13:34:00 -0500
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 13:34:00 -0500
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 13:34:00 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 13:34:00 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 13:34:00 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 13:34:00 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 13:34:00 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 13:34:00 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 13:34:04 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"https://www.youtube.com/watch?v=CGyEd0aKWZE", "tagsName"=>"tag1 tag2 tag3"}, "commit"=>"Submit"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "tags" ("created_at", "tagsName", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-07-21 18:34:04.336245"], ["tagsName", "tag1"], ["updated_at", "2014-07-21 18:34:04.336245"]]
+  [1m[35m (155.4ms)[0m  commit transaction
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags"  WHERE "tags"."id" IS NULL[0m
+SQLite3::SQLException: no such column: tags.id: SELECT "tags".* FROM "tags"  WHERE "tags"."id" IS NULL
+Completed 500 Internal Server Error in 270ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: tags.id: SELECT "tags".* FROM "tags"  WHERE "tags"."id" IS NULL):
+  app/controllers/contents_controller.rb:14:in `block in create'
+  app/controllers/contents_controller.rb:10:in `each'
+  app/controllers/contents_controller.rb:10:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (33.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 13:34:39 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (105.1ms)
+Completed 200 OK in 166ms (Views: 141.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 13:34:40 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 13:34:40 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 13:34:40 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 13:34:40 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 13:34:40 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 13:34:40 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 13:34:40 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 13:34:43 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"https://www.youtube.com/watch?v=CGyEd0aKWZE", "tagsName"=>"tag1 tag2 tag3"}, "commit"=>"Submit"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "tags" ("created_at", "tagsName", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-07-21 18:34:43.928952"], ["tagsName", "tag1"], ["updated_at", "2014-07-21 18:34:43.928952"]]
+  [1m[35m (159.7ms)[0m  commit transaction
+  [1m[36mTag Load (0.0ms)[0m  [1mSELECT "tags".* FROM "tags"  WHERE "tags"."id" IS NULL[0m
+SQLite3::SQLException: no such column: tags.id: SELECT "tags".* FROM "tags"  WHERE "tags"."id" IS NULL
+Completed 500 Internal Server Error in 285ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: tags.id: SELECT "tags".* FROM "tags"  WHERE "tags"."id" IS NULL):
+  app/controllers/contents_controller.rb:14:in `block in create'
+  app/controllers/contents_controller.rb:10:in `each'
+  app/controllers/contents_controller.rb:10:in `create'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (32.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddTagIdToContentsTags (20140721183701)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "contents_tags" ADD "tag_id" integer[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140721183701"]]
+  [1m[36m (155.7ms)[0m  [1mcommit transaction[0m
+Migrating to RemoveTimestampsFromContentsTags (20140721183754)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mCREATE TEMPORARY TABLE "acontents_tags" ("content_id" integer, "tagsName" varchar(255), "created_at" datetime, "updated_at" datetime, "tag_id" integer) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "contents_tags"
+  [1m[36m (0.0ms)[0m  [1mDROP TABLE "contents_tags"[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "contents_tags" ("content_id" integer, "tagsName" varchar(255), "updated_at" datetime, "tag_id" integer) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "acontents_tags"[0m
+  [1m[35m (0.0ms)[0m  DROP TABLE "acontents_tags"
+  [1m[36m (1.0ms)[0m  [1mCREATE TEMPORARY TABLE "acontents_tags" ("content_id" integer, "tagsName" varchar(255), "updated_at" datetime, "tag_id" integer) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "contents_tags"
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "contents_tags"[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "contents_tags" ("content_id" integer, "tagsName" varchar(255), "tag_id" integer) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "acontents_tags"[0m
+  [1m[35m (1.0ms)[0m  DROP TABLE "acontents_tags"
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140721183754"]]
+  [1m[35m (89.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveTagsNameFromContentsTags (20140721193840)
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mCREATE TEMPORARY TABLE "acontents_tags" ("content_id" integer, "tagsName" varchar(255), "tag_id" integer) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "contents_tags"
+  [1m[36m (10.0ms)[0m  [1mDROP TABLE "contents_tags"[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "contents_tags" ("content_id" integer, "tag_id" integer) 
+  [1m[36m (1.0ms)[0m  [1mSELECT * FROM "acontents_tags"[0m
+  [1m[35m (0.0ms)[0m  DROP TABLE "acontents_tags"
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140721193840"]]
+  [1m[35m (104.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (262.3ms)[0m  [1mCREATE TABLE "contents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "URL" varchar(255), "created_at" datetime, "updated_at" datetime, "tagsName" varchar(255)) [0m
+  [1m[35m (85.2ms)[0m  CREATE TABLE "contents_tags" ("content_id" integer, "tag_id" integer) 
+  [1m[36m (108.0ms)[0m  [1mCREATE TABLE "tags" ("tag_id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tagsName" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (156.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (105.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (102.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140721193840')
+  [1m[36m (95.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140630230855')[0m
+  [1m[35m (93.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140702231345')
+  [1m[36m (111.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140710221826')[0m
+  [1m[35m (100.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140711003955')
+  [1m[36m (95.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140717214034')[0m
+  [1m[35m (94.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140717215614')
+  [1m[36m (77.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140718174033')[0m
+  [1m[35m (144.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140718180140')
+  [1m[36m (167.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140718181118')[0m
+  [1m[35m (98.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140718181706')
+  [1m[36m (95.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140718182458')[0m
+  [1m[35m (93.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140721171511')
+  [1m[36m (122.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140721172300')[0m
+  [1m[35m (88.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140721183701')
+  [1m[36m (106.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140721183754')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 14:41:39 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (99.1ms)
+Completed 200 OK in 144ms (Views: 126.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contents/new" for 127.0.0.1 at 2014-07-21 14:41:39 -0500
+Processing by ContentsController#new as HTML
+  Rendered contents/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 18ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 14:41:39 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 14:41:39 -0500
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 14:41:39 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 14:41:39 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 14:41:40 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 14:41:40 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 14:41:40 -0500
+
+
+Started POST "/contents" for 127.0.0.1 at 2014-07-21 14:41:45 -0500
+Processing by ContentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAOasg7ZlJJoG918BGukP1h3iw4oXVzsunfwmPaZ88U=", "content"=>{"URL"=>"https://www.youtube.com/watch?v=CGyEd0aKWZE", "tagsName"=>"salvar tag1 tag2"}, "commit"=>"Submit"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "tags" ("created_at", "tagsName", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-07-21 19:41:45.081756"], ["tagsName", "salvar"], ["updated_at", "2014-07-21 19:41:45.081756"]]
+  [1m[35m (190.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "tags" ("created_at", "tagsName", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-07-21 19:41:45.330291"], ["tagsName", "tag1"], ["updated_at", "2014-07-21 19:41:45.330291"]]
+  [1m[36m (124.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "tags" ("created_at", "tagsName", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-07-21 19:41:45.461012"], ["tagsName", "tag2"], ["updated_at", "2014-07-21 19:41:45.461012"]]
+  [1m[35m (94.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "contents" ("URL", "created_at", "tagsName", "updated_at") VALUES (?, ?, ?, ?)  [["URL", "https://www.youtube.com/watch?v=CGyEd0aKWZE"], ["created_at", "2014-07-21 19:41:45.559598"], ["tagsName", "salvar tag1 tag2"], ["updated_at", "2014-07-21 19:41:45.559598"]]
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "contents_tags" ("content_id", "tag_id") VALUES (?, ?)[0m  [["content_id", 1], ["tag_id", 1]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "contents_tags" ("content_id", "tag_id") VALUES (?, ?)  [["content_id", 1], ["tag_id", 2]]
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "contents_tags" ("content_id", "tag_id") VALUES (?, ?)[0m  [["content_id", 1], ["tag_id", 3]]
+  [1m[35m (129.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/contents/1
+Completed 302 Found in 687ms (ActiveRecord: 547.2ms)
+
+
+Started GET "/contents/1" for 127.0.0.1 at 2014-07-21 14:41:45 -0500
+Processing by ContentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContent Load (1.0ms)[0m  [1mSELECT  "contents".* FROM "contents"  WHERE "contents"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered contents/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-21 14:41:45 -0500
+
+
+Started GET "/assets/contents.css?body=1" for 127.0.0.1 at 2014-07-21 14:41:45 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-21 14:41:46 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-21 14:41:46 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-21 14:41:46 -0500
+
+
+Started GET "/assets/contents.js?body=1" for 127.0.0.1 at 2014-07-21 14:41:46 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-21 14:41:46 -0500

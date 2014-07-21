@@ -1,9 +1,9 @@
 class CreateContentTagTable < ActiveRecord::Migration
   def self.up
 	
-    create_table :contents_tags, :id => false do |t| #adicionei o :id => false
+    create_table :contents_tags, :id => true do |t| #adicionei o :id => false
 	t.integer :content_id
-	t.string :tagsName #modifiquei de integer para string pois o id de tag eh o proprio nome da tag
+	t.integer :tag_id #modifiquei de integer para string pois o id de tag eh o proprio nome da tag
 	t.timestamp #adicionei soh pra registrar o dia da associacao
     end
   end

@@ -1,7 +1,6 @@
 class CreateTags < ActiveRecord::Migration
   def self.up
-     create_table :tags, :id => false do |t|
-		t.remove :id
+     create_table :tags, :id => true do |t|
         t.string  :tagsName, primary_key: true
         t.timestamp
      end
